@@ -1,0 +1,28 @@
+name: Deploy Notebooks to Databricks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Databricks CLI
+        run: |
+          pip install -U urllib3 requests
+          pip install --upgrade urllib3
+          pip install --upgrade chardet
+          pip install --upgrade databricks-cli
+
+      - name: Deploy Notebooks to Databricks
+        run: |
+          databricks workspace ls
+        env:
+          DATABRICKS_HOST: https://adb-1778717546220542.2.azuredatabricks.net
+          DATABRICKS_TOKEN: dapib9959b7bf0ae03b8f5e47a891505e080
