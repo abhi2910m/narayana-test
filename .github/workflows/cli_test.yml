@@ -24,5 +24,5 @@ jobs:
         run: |
           databricks workspace ls
         env:
-          DATABRICKS_HOST: https://adb-1778717546220542.2.azuredatabricks.net
-          DATABRICKS_TOKEN: dapib9959b7bf0ae03b8f5e47a891505e080
+          DATABRICKS_HOST: ${{ secrets.host }}
+          DATABRICKS_TOKEN: ${{ secrets.token }}
